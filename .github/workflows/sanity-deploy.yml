@@ -5,6 +5,9 @@ on:
 jobs:
   sanity-deploy:
     runs-on: ubuntu-18.04
+    defaults:
+      run: 
+        working-directory: studio
     name: Deploy Sanity
     steps:
       - uses: actions/checkout@v2
