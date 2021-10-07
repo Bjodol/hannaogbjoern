@@ -20,6 +20,6 @@ jobs:
       - name: Install Sanity CLI
         run: npm install @sanity/cli
       - name: Deploy Sanity Studio
-        run: echo hannaogbjoernbryllup | npx sanity deploy
+        run: npx sanity deploy
         env:
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
