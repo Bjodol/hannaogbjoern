@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: 12.x
       - name: Install dependencies
-        run: npm ci
+        run: yarn install --frozen-lockfile
       - name: Install Sanity CLI
         run: npm install @sanity/cli
       - name: Deploy Sanity Studio
