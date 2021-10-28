@@ -1,0 +1,420 @@
+{
+    "guestList": [
+        {
+            "name": "Birgitt",
+            "invitationGroup": "1"
+        },
+        {
+            "name": "Sigbjørn",
+            "invitationGroup": "1"
+        },
+        {
+            "name": "Maren",
+            "invitationGroup": "2"
+        },
+        {
+            "name": "Yngve",
+            "invitationGroup": "2"
+        },
+        {
+            "name": "Ola",
+            "invitationGroup": "2"
+        },
+        {
+            "name": "Anton",
+            "invitationGroup": "2"
+        },
+        {
+            "name": "Stein",
+            "invitationGroup": "3"
+        },
+        {
+            "name": "Rolf",
+            "invitationGroup": "4"
+        },
+        {
+            "name": "Petter",
+            "invitationGroup": "5"
+        },
+        {
+            "name": "Lisa",
+            "invitationGroup": "5"
+        },
+        {
+            "name": "Linn",
+            "invitationGroup": "6"
+        },
+        {
+            "name": "Max",
+            "invitationGroup": "6"
+        },
+        {
+            "name": "Axel",
+            "invitationGroup": "6"
+        },
+        {
+            "name": "Bendik",
+            "invitationGroup": "7"
+        },
+        {
+            "name": "Peder",
+            "invitationGroup": "7"
+        },
+        {
+            "name": "William",
+            "invitationGroup": "8"
+        },
+        {
+            "name": "Sara",
+            "invitationGroup": "8"
+        },
+        {
+            "name": "Gunnhild",
+            "invitationGroup": "9"
+        },
+        {
+            "name": "Bjørn",
+            "invitationGroup": "9"
+        },
+        {
+            "name": "Anne",
+            "invitationGroup": "10"
+        },
+        {
+            "name": "Bent",
+            "invitationGroup": "10"
+        },
+        {
+            "name": "Eva",
+            "invitationGroup": "11"
+        },
+        {
+            "name": "Steinar",
+            "invitationGroup": "11"
+        },
+        {
+            "name": "Arve",
+            "invitationGroup": "12"
+        },
+        {
+            "name": "Toril",
+            "invitationGroup": "12"
+        },
+        {
+            "name": "Eli",
+            "invitationGroup": "13"
+        },
+        {
+            "name": "Ole",
+            "invitationGroup": "13"
+        },
+        {
+            "name": "Dalia",
+            "invitationGroup": "13"
+        },
+        {
+            "name": "Kristin",
+            "invitationGroup": "14"
+        },
+        {
+            "name": "Ove",
+            "invitationGroup": "14"
+        },
+        {
+            "name": "Terese",
+            "invitationGroup": "15"
+        },
+        {
+            "name": "Quodrad",
+            "invitationGroup": "16"
+        },
+        {
+            "name": "Fahima",
+            "invitationGroup": "16"
+        },
+        {
+            "name": "Helena",
+            "invitationGroup": "16"
+        },
+        {
+            "name": "Borghild",
+            "invitationGroup": "17"
+        },
+        {
+            "name": "Kornelius",
+            "invitationGroup": "17"
+        },
+        {
+            "name": "Siren",
+            "invitationGroup": "18"
+        },
+        {
+            "name": "Mikael",
+            "invitationGroup": "18"
+        },
+        {
+            "name": "Synne",
+            "invitationGroup": "19"
+        },
+        {
+            "name": "Marius",
+            "invitationGroup": "19"
+        },
+        {
+            "name": "Maria",
+            "invitationGroup": "20"
+        },
+        {
+            "name": "Emilie",
+            "invitationGroup": "21"
+        },
+        {
+            "name": "Fanny",
+            "invitationGroup": "22"
+        },
+        {
+            "name": "Nina",
+            "invitationGroup": "23"
+        },
+        {
+            "name": "Stein-Ove",
+            "invitationGroup": "23"
+        },
+        {
+            "name": "Tiril",
+            "invitationGroup": "24"
+        },
+        {
+            "name": "Gjermund",
+            "invitationGroup": "24"
+        },
+        {
+            "name": "Astrid",
+            "invitationGroup": "25"
+        },
+        {
+            "name": "Eva",
+            "invitationGroup": "26"
+        },
+        {
+            "name": "Lia",
+            "invitationGroup": "27"
+        },
+        {
+            "name": "Randi",
+            "invitationGroup": "28"
+        },
+        {
+            "name": "Jon-Morten",
+            "invitationGroup": "28"
+        },
+        {
+            "name": "Nadia",
+            "invitationGroup": "29"
+        },
+        {
+            "name": "Nadias kjæreste",
+            "invitationGroup": "29"
+        },
+        {
+            "name": "Steinar",
+            "invitationGroup": "30"
+        },
+        {
+            "name": "Irene",
+            "invitationGroup": "30"
+        },
+        {
+            "name": "Heidi",
+            "invitationGroup": "31"
+        },
+        {
+            "name": "Arne-Dag",
+            "invitationGroup": "31"
+        },
+        {
+            "name": "Leiv Fredrik",
+            "invitationGroup": "32"
+        },
+        {
+            "name": "Monica",
+            "invitationGroup": "32"
+        },
+        {
+            "name": "Terje",
+            "invitationGroup": "33"
+        },
+        {
+            "name": "Carolin",
+            "invitationGroup": "33"
+        },
+        {
+            "name": "Jonatan",
+            "invitationGroup": "34"
+        },
+        {
+            "name": "Sara",
+            "invitationGroup": "34"
+        },
+        {
+            "name": "Øyvind",
+            "invitationGroup": "35"
+        },
+        {
+            "name": "Ingrid",
+            "invitationGroup": "35"
+        },
+        {
+            "name": "Kristina",
+            "invitationGroup": "36"
+        },
+        {
+            "name": "Garth",
+            "invitationGroup": "37"
+        },
+        {
+            "name": "Inghild",
+            "invitationGroup": "37"
+        },
+        {
+            "name": "Sigve",
+            "invitationGroup": "38"
+        },
+        {
+            "name": "Jarle",
+            "invitationGroup": "39"
+        },
+        {
+            "name": "Linn",
+            "invitationGroup": "39"
+        },
+        {
+            "name": "Lars Kristian",
+            "invitationGroup": "40"
+        },
+        {
+            "name": "Runar",
+            "invitationGroup": "41"
+        },
+        {
+            "name": "Silje",
+            "invitationGroup": "41"
+        },
+        {
+            "name": "Stian",
+            "invitationGroup": "42"
+        },
+        {
+            "name": "Hanna",
+            "invitationGroup": "42"
+        },
+        {
+            "name": "Sondre",
+            "invitationGroup": "43"
+        },
+        {
+            "name": "Øystein",
+            "invitationGroup": "44"
+        },
+        {
+            "name": "Péter",
+            "invitationGroup": "45"
+        },
+        {
+            "name": "Anders",
+            "invitationGroup": "46"
+        },
+        {
+            "name": "Simen",
+            "invitationGroup": "47"
+        },
+        {
+            "name": "Alf",
+            "invitationGroup": "48"
+        },
+        {
+            "name": "Daniel",
+            "invitationGroup": "49"
+        },
+        {
+            "name": "Mats",
+            "invitationGroup": "50"
+        },
+        {
+            "name": "Amanda",
+            "invitationGroup": "50"
+        },
+        {
+            "name": "Didrik",
+            "invitationGroup": "51"
+        },
+        {
+            "name": "Leo",
+            "invitationGroup": "51"
+        },
+        {
+            "name": "Morten",
+            "invitationGroup": "52"
+        },
+        {
+            "name": "Sindre R",
+            "invitationGroup": "53"
+        },
+        {
+            "name": "Sindre B",
+            "invitationGroup": "54"
+        },
+        {
+            "name": "Andreas",
+            "invitationGroup": "55"
+        },
+        {
+            "name": "Magnus",
+            "invitationGroup": "56"
+        },
+        {
+            "name": "Ivana",
+            "invitationGroup": "56"
+        },
+        {
+            "name": "Mathias",
+            "invitationGroup": "57"
+        },
+        {
+            "name": "Håkon",
+            "invitationGroup": "58"
+        },
+        {
+            "name": "Tonje",
+            "invitationGroup": "59"
+        },
+        {
+            "name": "Sara",
+            "invitationGroup": "60"
+        },
+        {
+            "name": "Jørgen",
+            "invitationGroup": "61"
+        },
+        {
+            "name": "Gene",
+            "invitationGroup": "62"
+        },
+        {
+            "name": "Genes plus one",
+            "invitationGroup": "62"
+        },
+        {
+            "name": "Robert",
+            "invitationGroup": "63"
+        },
+        {
+            "name": "Marily",
+            "invitationGroup": "63"
+        },
+        {
+            "name": "Erle",
+            "invitationGroup": "64"
+        }
+    ]
+}
