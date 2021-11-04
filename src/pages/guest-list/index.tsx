@@ -1,5 +1,7 @@
 import { useMemo, useState } from "react";
+import { formatNames } from "../../utils";
 import { guestList } from "./guest-list.json";
+import Link from "next/link";
 
 const GuestListPage: React.FC = () => {
   const [filter, setFilter] = useState("");
@@ -29,7 +31,9 @@ const GuestListPage: React.FC = () => {
       />
       <ul>
         {Object.entries(groups).map(([id, names]) => (
-          <li key={id}>{names.join(", ").replace(/, ([^,]*)$/, " og $1")}</li>
+          <li key={id}>
+            <Link href={`/guest-list/${id}`}>{formatNames(names)}</Link>
+          </li>
         ))}
       </ul>
     </form>
