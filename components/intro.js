@@ -2,7 +2,7 @@ export default function Intro() {
   return (
     <section className="flex-col md:flex-row flex items-center md:justify-between py-16 md:pb-12 text-center sm:text-left">
       <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8">
-        <span className="bg-clip-text text-transparent bg-gradient-to-tr from-green-900 to-pink-900">
+        <span className="bg-clip-text text-transparent bg-gradient-to-tr from-green-900 to-pink-900 hover:text-green-900">
           Hanna + Bjørn = ❤️
         </span>
       </h1>
