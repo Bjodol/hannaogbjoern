@@ -4,7 +4,7 @@ import type { AppProps } from "next/app";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <div className="bg-gradient-to-tr from-green-100 to-pink-100 min-h-screen">
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </div>
   );
 }

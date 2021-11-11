@@ -107,6 +107,6 @@ export const getDBResourceClient = <R>(options: DBResourceOption) => ({
   list: (resource: Filter<OptionalId<Partial<R>>>) =>
     listResource(resource as OptionalId<Partial<R>>, options),
   create: (resource: R) => createResource(resource, options),
-  update: (query: WithId<R>, resource: Partial<R>) =>
-    updateResource(query, resource, options),
+  update: (query: Partial<WithId<R>>, resource: Partial<R>) =>
+    updateResource(query as WithId<R>, resource, options),
 });
