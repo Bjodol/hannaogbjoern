@@ -4,6 +4,8 @@ import { guestList } from "./guest-list.json";
 import Link from "next/link";
 import { EmojiLabel } from "../../components/EmojiLabel";
 import PostTitle from "../../../components/post-title";
+import Header from "../../../components/header";
+import Container from "../../../components/container";
 
 const GuestListPage: React.FC = () => {
   const [filter, setFilter] = useState("");
@@ -25,7 +27,8 @@ const GuestListPage: React.FC = () => {
   }, [filter]);
 
   return (
-    <div>
+    <Container>
+      <Header />
       <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center  pt-8">
         <span className="bg-clip-text text-transparent bg-gradient-to-tr from-green-900 to-pink-900">
           Finn din invitasjon 🔍
@@ -61,7 +64,7 @@ const GuestListPage: React.FC = () => {
           ))}
         </ul>
       </form>
-    </div>
+    </Container>
   );
 };
 

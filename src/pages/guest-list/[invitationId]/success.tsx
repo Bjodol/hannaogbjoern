@@ -8,9 +8,7 @@ import { formatMultiple, formatNames } from "../../../utils";
 import { GuestList } from "../../api/rsvp";
 
 const getRSVP = async (invitationId: string) => {
-  const { data } = await axios.get<GuestList>(
-    `/api/rsvp?invitationId=${invitationId}`
-  );
+  const { data } = await axios.get<GuestList>(invitationId);
   return data;
 };
 
@@ -18,7 +16,10 @@ const Success: React.FC = () => {
   const {
     query: { invitationId },
   } = useRouter();
-  const { data, error } = useSWR(invitationId, getRSVP);
+  const { data, error } = useSWR(
+    `/api/rsvp?invitationId=${invitationId}`,
+    getRSVP
+  );
   const attendees =
     data?.guestInfo
       .filter(({ willAttend }) => willAttend)
@@ -39,8 +40,8 @@ const Success: React.FC = () => {
     return () => clearInterval(interval);
   }, [attendees]);
   return (
-    <div className="flex items-center h-screen justify-center flex-wrap">
-      <h1 className="text-3xl sm:text-9xl text-center p-16 leading-relaxed">
+    <div className="flex items-center min-h-screen justify-center flex-wrap">
+      <h1 className="text-3xl lg:text-9xl sm:text-6xl text-center p-16 leading-relaxed">
         {attendees.length > 0 && (
           <span>
             🎉 🎉 🎉 <br />

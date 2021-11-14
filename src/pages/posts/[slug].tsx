@@ -42,6 +42,7 @@ export default function Post({ post, morePosts, preview }) {
 
             <Comments comments={post.comments} />
             <Form _id={post._id} />
+            <hr className="h-16" />
             {morePosts.length > 0 && <MoreStories posts={morePosts} />}
           </>
         )}
