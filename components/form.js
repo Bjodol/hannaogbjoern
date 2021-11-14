@@ -34,12 +34,12 @@ export default function Form({ _id }) {
   if (hasSubmitted) {
     return (
       <>
-        <h3>Thanks for your comment!</h3>
+        <h3>Takk for interessen!</h3>
         <ul>
           <li>
-            Name: {formData.name} <br />
+            Navn: {formData.name} <br />
             Email: {formData.email} <br />
-            Comment: {formData.comment}
+            Kommentar: {formData.comment}
           </li>
         </ul>
       </>
@@ -54,12 +54,12 @@ export default function Form({ _id }) {
     >
       <input {...register("_id")} type="hidden" name="_id" value={_id} />
       <label className="block mb-5">
-        <span className="text-gray-700">Name</span>
+        <span className="text-gray-700">Navn</span>
         <input
           name="name"
           {...register("name", { required: true })}
           className="shadow border rounded py-2 px-3 form-input mt-1 block w-full"
-          placeholder="John Appleseed"
+          placeholder="Navnet ditt"
         />
       </label>
       <label className="block mb-5">
@@ -69,17 +69,17 @@ export default function Form({ _id }) {
           type="email"
           {...register("email", { required: true })}
           className="shadow border rounded py-2 px-3 form-input mt-1 block w-full"
-          placeholder="your@email.com"
+          placeholder="din@epost.sj"
         />
       </label>
       <label className="block mb-5">
-        <span className="text-gray-700">Comment</span>
+        <span className="text-gray-700">Kommentar</span>
         <textarea
           {...register("comment", { required: true })}
           name="comment"
           className="shadow border rounded py-2 px-3  form-textarea mt-1 block w-full"
           rows="8"
-          placeholder="Enter some long form content."
+          placeholder="Hvis du også har får vane og kommentere i kommentarfeltet på VG så holder sikkert det 🤪"
         ></textarea>
       </label>
       {/* errors will return when field validation fails  */}
