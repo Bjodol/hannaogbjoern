@@ -18,7 +18,7 @@ export const getSearchParams = <R>({
   url: string;
   schema: Schema;
 }): Partial<R> => {
-  const { search } = new URL(`${host}${url}`);
+  const { search } = new URL(`http://${host}${url}`);
   const filters = Array.from(new URLSearchParams(search).entries());
   if (filters.length > 0) {
     const keys = Object.keys(schema.properties);
