@@ -44,7 +44,8 @@ export const getSearchParams = <R>({
     if (errors.length > 0) throw new SchemaValidationError(errors);
     return query;
   }
-  throw new Error("No filters");
+  // throw new Error("No filters");
+  return {};
 };
 
 export const getResourceId = (params?: string | string[]): ObjectId | null => {

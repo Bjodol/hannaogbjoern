@@ -23,15 +23,33 @@ export default function Intro() {
           </Link>
         </div>
       </section>
-      <nav className="py-4">
-        <ul>
+      <nav>
+        <ul className="sm:flex sm:space-x-4">
           <li>
             <Link href="/wishlist">
-              <a className="text-xl py-4">
+              <a className="text-xl py-4 block">
                 <EmojiLabel emoji="💝">
                   <span className="underline">
                     Ønskeliste (Tilgjenglig 15. Januar)
                   </span>
+                </EmojiLabel>
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/posts/transport">
+              <a className="text-xl py-4 block">
+                <EmojiLabel emoji="🚃">
+                  <span className="underline">Transport</span>
+                </EmojiLabel>
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/posts/overnatting">
+              <a className="text-xl py-4 block">
+                <EmojiLabel emoji="🛏️">
+                  <span className="underline">Overnatting</span>
                 </EmojiLabel>
               </a>
             </Link>

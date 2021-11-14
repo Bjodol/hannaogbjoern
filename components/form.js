@@ -79,7 +79,7 @@ export default function Form({ _id }) {
           name="comment"
           className="shadow border rounded py-2 px-3  form-textarea mt-1 block w-full"
           rows="8"
-          placeholder="Hvis du også har får vane og kommentere i kommentarfeltet på VG så holder sikkert det 🤪"
+          placeholder="Hvis du også har for vane og kommentere i kommentarfeltet på VG så holder sikkert det 🤪"
         ></textarea>
       </label>
       {/* errors will return when field validation fails  */}

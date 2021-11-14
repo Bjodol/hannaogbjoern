@@ -113,7 +113,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     headers: { host },
     url,
   } = req;
-  console.log({ host, url });
   try {
     switch (method.toUpperCase()) {
       case "GET": {
