@@ -60,7 +60,7 @@ const InvitationRSVP: React.FC = () => {
     watch,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<GuestList>();
   const { fields } = useFieldArray({ control, name: "guestInfo" });
 
@@ -348,6 +348,7 @@ const InvitationRSVP: React.FC = () => {
         <button
           type="submit"
           className="bg-green-400 w-full rounded p-4 border shadow-xl"
+          disabled={isSubmitting}
         >
           ✉️ Send inn
         </button>
@@ -355,6 +356,7 @@ const InvitationRSVP: React.FC = () => {
           type="reset"
           onClick={() => reset(getDefaultValue(invitationId as string))}
           className="w-full p-4"
+          disabled={isSubmitting}
         >
           ❌ Start på nytt
         </button>
