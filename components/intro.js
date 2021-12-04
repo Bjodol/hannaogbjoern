@@ -17,8 +17,8 @@ export default function Intro() {
             - 30. April 2022 gifter vi oss 💒
           </h4>
           <Link href="/guest-list">
-            <a className="flex justify-center rounded-full w-full bg-pink-600 text-white p-4">
-              Påmelding
+            <a className="flex justify-center rounded-full w-full bg-pink-600 text-white p-4 font-bold">
+              RSVP
             </a>
           </Link>
         </div>
