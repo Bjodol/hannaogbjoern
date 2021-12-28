@@ -1,0 +1,154 @@
+import Container from "../../../components/container";
+import Header from "../../../components/header";
+import { getWishes } from "../../../lib/api";
+import markdownStyles from "../../../components/markdown-styles.module.css";
+import { EmojiLabel } from "../../components/EmojiLabel";
+import BlockContent from "@sanity/block-content-to-react";
+import Image from "next/image";
+import { imageBuilder } from "../../../lib/sanity";
+import { useMemo } from "react";
+
+type Link = {
+  _key: string;
+  link: string;
+  name: string;
+};
+
+type Slug = {
+  _type: "slug";
+  current: string;
+};
+
+type Media = {
+  _type: "image";
+  asset: {
+    _ref: string;
+    _type: "reference";
+  };
+};
+
+type Wish = {
+  _createdAt: string;
+  _id: string;
+  _rev: string;
+  _type: "wish";
+  _updatedAt: string;
+  count: number;
+  description: any;
+  image?: Media;
+  links: Link[];
+  slug: Slug;
+  title: string;
+};
+
+const WishlistPage: React.FC<{ wishes: Wish[] }> = ({ wishes }) => {
+  const data = [];
+  const wishlist = useMemo(
+    () =>
+      wishes.map((wish) => {
+        const status = data.find((id) => id === wish._id)?.count ?? 0;
+        const progress =
+          status / wish.count === 1
+            ? 100
+            : Math.abs((status / wish.count) * 100);
+        return {
+          ...wish,
+          progress,
+          status,
+        };
+      }),
+    []
+  );
+  return (
+    <Container>
+      <Header />
+      <h1 className="text-2xl sm:text-6xl text-center mb-16">
+        <EmojiLabel emoji="💝">
+          <span className="pl-4">Ønskeliste</span>
+        </EmojiLabel>
+      </h1>
+      <ul className="max-w-[64rem]">
+        {wishlist.map(
+          ({
+            _id,
+            title,
+            description,
+            image,
+            links,
+            count,
+            progress,
+            status,
+          }) => (
+            <li
+              key={_id}
+              className="sm:grid grid-cols-[200px_auto] gap-4 bg-white shadow-2xl rounded-lg"
+            >
+              <Image
+                src={
+                  image
+                    ? imageBuilder(image).width(200).height(200).url()
+                    : "/static/Ribbon.png"
+                }
+                width={200}
+                height={200}
+                objectFit="contain"
+                alt="wish-image"
+              />
+              <div className="p-4 grid gap-2">
+                <h2 className="text-lg font-[600]">{title}</h2>
+                <BlockContent
+                  blocks={description}
+                  projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
+                  dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
+                  className={markdownStyles.markdown}
+                />
+                <h3>Tilgjenlig hos:</h3>
+                <ul className="pl-4">
+                  {links.map(({ _key, link, name }) => (
+                    <li key={_key}>
+                      <a
+                        href={link}
+                        className="underline decoration-pink-600 decoration-2"
+                      >
+                        {name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                <div className="grid gap-4 grid-cols-[auto_1fr] items-center">
+                  <h3 className="text-lg">Status</h3>
+                  <progress value={status} max={count} className="sr-only" />
+                  <div className={`bg-gray-300 rounded-lg`}>
+                    {!!progress ? (
+                      <span
+                        className={`flex items-center justify-center bg-pink-600 text-white text-bold rounded-lg px-4 py-2`}
+                        style={{ width: `${progress}%` }}
+                      >{`${status}/${count}`}</span>
+                    ) : (
+                      <span className="flex items-center justify-center px-4 py-2">{`${status}/${count}`}</span>
+                    )}
+                  </div>
+                </div>
+                <button className="flex justify-center rounded-full w-full bg-pink-600 text-white px-4 py-2 font-bold sm:w-[fit-content] justify-self-end">
+                  Marker en som kjøpt
+                </button>
+              </div>
+            </li>
+          )
+        )}
+      </ul>
+    </Container>
+  );
+};
+
+export async function getStaticProps({ params, preview = false }) {
+  const data = await getWishes();
+  return {
+    props: {
+      wishes: data,
+    },
+    revalidate: 1,
+  };
+}
+
+export default WishlistPage;
