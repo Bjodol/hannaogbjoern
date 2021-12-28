@@ -8,17 +8,56 @@ const ResponsePage: React.FC = () => {
     "/api/rsvp",
     axios.get
   );
-  const sorted = useMemo(
-    () =>
-      data?.data.guestInfo.sort(
-        (a, b) => (a.willAttend ? 1 : 0) - (b.willAttend ? 1 : 0)
-      ) ?? [],
+  const { sorted, ...stats } = useMemo(
+    () => ({
+      sorted:
+        data?.data.guestInfo.sort(
+          (a, b) => (a.willAttend ? 1 : 0) - (b.willAttend ? 1 : 0)
+        ) ?? [],
+      attendes: data?.data.guestInfo.reduce(
+        (acc, { willAttend }) => (willAttend ? acc + 1 : acc),
+        0
+      ),
+      declined: data?.data.guestInfo.reduce(
+        (acc, { willAttend }) => (!willAttend ? acc + 1 : acc),
+        0
+      ),
+      diets: data?.data.guestInfo.reduce((acc, { diet }) => {
+        if (acc[diet]) return { ...acc, [diet]: acc[diet] + 1 };
+        return { ...acc, [diet]: 1 };
+      }, {}),
+      alcohol: data?.data.guestInfo.reduce(
+        (acc, { alcohol }) => (alcohol ? acc + 1 : acc),
+        0
+      ),
+      friday: data?.data.guestInfo.reduce(
+        (acc, { friday }) => (friday ? acc + 1 : acc),
+        0
+      ),
+    }),
     [data]
   );
   if (error) return <div>failed to load</div>;
   if (!data) return <div>Loading</div>;
   return (
-    <div className="p-16">
+    <div className="p-16 w-full">
+      <h1 className="text-6xl">Summary</h1>
+      <ul>
+        {Object.entries(stats).map(([key, value]) => {
+          if (typeof value === "number")
+            return <li key={key}>{`${key}: ${value}`}</li>;
+          return (
+            <li>
+              {key}
+              <ul className="pl-4">
+                {Object.entries(value).map(([preference, count]) => (
+                  <li key={preference}>{`${preference}: ${count}`}</li>
+                ))}
+              </ul>
+            </li>
+          );
+        })}
+      </ul>
       <h1 className="text-6xl">Gjesteliste</h1>
       <table className="border-seperate">
         <thead>
