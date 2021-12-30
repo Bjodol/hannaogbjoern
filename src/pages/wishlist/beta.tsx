@@ -6,7 +6,10 @@ import { EmojiLabel } from "../../components/EmojiLabel";
 import BlockContent from "@sanity/block-content-to-react";
 import Image from "next/image";
 import { imageBuilder } from "../../../lib/sanity";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
+import axios, { AxiosResponse } from "axios";
+import useSWR, { useSWRConfig } from "swr";
+import { WishResource } from "../api/wish";
 
 type Link = {
   _key: string;
@@ -42,22 +45,30 @@ type Wish = {
 };
 
 const WishlistPage: React.FC<{ wishes: Wish[] }> = ({ wishes }) => {
-  const data = [];
+  const [loading, setLoading] = useState(false);
+  const { mutate } = useSWRConfig();
+  const { data } = useSWR<AxiosResponse<WishResource[]>>(
+    "/api/wish",
+    axios.get
+  );
   const wishlist = useMemo(
     () =>
-      wishes.map((wish) => {
-        const status = data.find((id) => id === wish._id)?.count ?? 0;
-        const progress =
-          status / wish.count === 1
-            ? 100
-            : Math.abs((status / wish.count) * 100);
-        return {
-          ...wish,
-          progress,
-          status,
-        };
-      }),
-    []
+      wishes
+        .map((wish) => {
+          const status =
+            data?.data.find(({ id }) => id === wish._id)?.count ?? 0;
+          const progress =
+            status / wish.count === 1
+              ? 100
+              : Math.abs((status / wish.count) * 100);
+          return {
+            ...wish,
+            progress,
+            status,
+          };
+        })
+        .sort((a, b) => (b.progress - a.progress) * -1),
+    [data, wishes]
   );
   return (
     <Container>
@@ -67,7 +78,7 @@ const WishlistPage: React.FC<{ wishes: Wish[] }> = ({ wishes }) => {
           <span className="pl-4">Ønskeliste</span>
         </EmojiLabel>
       </h1>
-      <ul className="max-w-[64rem]">
+      <ul className="max-w-[64rem] space-y-4">
         {wishlist.map(
           ({
             _id,
@@ -77,23 +88,27 @@ const WishlistPage: React.FC<{ wishes: Wish[] }> = ({ wishes }) => {
             links,
             count,
             progress,
+            slug,
             status,
           }) => (
             <li
               key={_id}
+              id={_id}
               className="sm:grid grid-cols-[200px_auto] gap-4 bg-white shadow-2xl rounded-lg"
             >
-              <Image
-                src={
-                  image
-                    ? imageBuilder(image).width(200).height(200).url()
-                    : "/static/Ribbon.png"
-                }
-                width={200}
-                height={200}
-                objectFit="contain"
-                alt="wish-image"
-              />
+              <div className="flex justify-center">
+                <Image
+                  src={
+                    image
+                      ? imageBuilder(image).width(200).height(200).url()
+                      : "/static/Ribbon.png"
+                  }
+                  width={200}
+                  height={200}
+                  objectFit="contain"
+                  alt="wish-image"
+                />
+              </div>
               <div className="p-4 grid gap-2">
                 <h2 className="text-lg font-[600]">{title}</h2>
                 <BlockContent
@@ -129,9 +144,35 @@ const WishlistPage: React.FC<{ wishes: Wish[] }> = ({ wishes }) => {
                     )}
                   </div>
                 </div>
-                <button className="flex justify-center rounded-full w-full bg-pink-600 text-white px-4 py-2 font-bold sm:w-[fit-content] justify-self-end">
-                  Marker en som kjøpt
-                </button>
+                {status !== count ? (
+                  <button
+                    disabled={loading}
+                    onClick={async () => {
+                      setLoading(true);
+                      const fetcher = status === 0 ? axios.post : axios.put;
+                      const response = await fetcher("/api/wish", {
+                        id: _id,
+                        slug: slug.current,
+                        count: status + 1,
+                      });
+                      console.log({ response });
+                      await mutate("/api/wish");
+                      const element = document.getElementById(_id);
+                      element.scrollIntoView({
+                        behavior: "smooth",
+                        block: "end",
+                      });
+                      setLoading(false);
+                    }}
+                    className="flex justify-center rounded-full w-full bg-pink-600 text-white px-4 py-2 font-bold sm:w-[fit-content] justify-self-end"
+                  >
+                    Marker en som kjøpt
+                  </button>
+                ) : (
+                  <span className="flex justify-center w-full italic text-pink-600 px-4 py-2 font-bold sm:w-[fit-content] justify-self-end">
+                    Alt er kjøpt
+                  </span>
+                )}
               </div>
             </li>
           )
