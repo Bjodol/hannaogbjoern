@@ -68,6 +68,7 @@ const WishlistPage: React.FC<{ wishes: Wish[] }> = ({ wishes }) => {
             status,
           };
         })
+        .sort((a, b) => a.slug.current.localeCompare(b.slug.current))
         .sort((a, b) => (b.progress - a.progress) * -1),
     [data, wishes]
   );
