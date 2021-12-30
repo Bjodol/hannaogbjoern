@@ -10,6 +10,7 @@ import { useMemo, useState } from "react";
 import axios, { AxiosResponse } from "axios";
 import useSWR, { useSWRConfig } from "swr";
 import { WishResource } from "../api/wish";
+import cx from "classnames";
 
 type Link = {
   _key: string;
@@ -94,7 +95,10 @@ const WishlistPage: React.FC<{ wishes: Wish[] }> = ({ wishes }) => {
             <li
               key={_id}
               id={_id}
-              className="sm:grid grid-cols-[200px_auto] gap-4 bg-white shadow-2xl rounded-lg"
+              className={cx(
+                "sm:grid grid-cols-[200px_auto] gap-4 bg-white shadow-2xl rounded-lg",
+                { "animate-pulse": loading }
+              )}
             >
               <div className="flex justify-center">
                 <Image
