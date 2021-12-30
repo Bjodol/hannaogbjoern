@@ -255,45 +255,7 @@ const InvitationRSVP: React.FC = () => {
                 {!!alcohol && (
                   <h2
                     className={cx({
-                      "font-bold": !!alcohol && !allergiesConfirmed,
-                    })}
-                  >{`${
-                    !!allergiesConfirmed
-                      ? ` ${
-                          !!allergies
-                            ? `Er allergisk mot ${allergies}`
-                            : "Har ingen allergier"
-                        }`
-                      : "Er allergisk mot... ❓"
-                  }`}</h2>
-                )}
-                <div
-                  className={animateHeight(
-                    !!alcohol && !allergiesConfirmed,
-                    "flex w-full"
-                  )}
-                >
-                  <label className="block flex-grow">
-                    <input
-                      type="text"
-                      className="w-full p-4 border rounded"
-                      placeholder="Allergier"
-                      {...register(`guestInfo.${index}.allergies`)}
-                    />
-                  </label>
-                  <label className="bg-green-100 p-4 rounded hover:bg-green-400">
-                    Bekreft
-                    <input
-                      type="checkbox"
-                      className="sr-only"
-                      {...register(`guestInfo.${index}.allergiesConfirmed`)}
-                    />
-                  </label>
-                </div>
-                {!!allergiesConfirmed && (
-                  <h2
-                    className={cx({
-                      "font-bold": !!allergiesConfirmed && !friday,
+                      "font-bold": !!alcohol && !friday,
                     })}
                   >{`${name} ${getChoiceText(`${friday}`, {
                     true: " deltar på pizza-minglingen fredagen 🍕",
@@ -301,7 +263,7 @@ const InvitationRSVP: React.FC = () => {
                     null: "... ⁉️",
                   })}`}</h2>
                 )}
-                <div className={animateHeight(!!allergiesConfirmed && !friday)}>
+                <div className={animateHeight(!!alcohol && !friday)}>
                   <label className="block py-4 hover:bg-green-100">
                     <input
                       value="true"
@@ -325,6 +287,44 @@ const InvitationRSVP: React.FC = () => {
                         Ønsker ikke å være med på fredagen.
                       </span>
                     </EmojiLabel>
+                  </label>
+                </div>
+                {!!friday && (
+                  <h2
+                    className={cx({
+                      "font-bold": !!friday && !allergiesConfirmed,
+                    })}
+                  >{`${
+                    !!allergiesConfirmed
+                      ? ` ${
+                          !!allergies
+                            ? `Er allergisk mot ${allergies}`
+                            : "Har ingen allergier"
+                        }`
+                      : "Er allergisk mot... ❓"
+                  }`}</h2>
+                )}
+                <div
+                  className={animateHeight(
+                    !!friday && !allergiesConfirmed,
+                    "flex w-full"
+                  )}
+                >
+                  <label className="block flex-grow">
+                    <input
+                      type="text"
+                      className="w-full p-4 border rounded"
+                      placeholder="Allergier"
+                      {...register(`guestInfo.${index}.allergies`)}
+                    />
+                  </label>
+                  <label className="bg-green-100 p-4 rounded hover:bg-green-400">
+                    Bekreft
+                    <input
+                      type="checkbox"
+                      className="sr-only"
+                      {...register(`guestInfo.${index}.allergiesConfirmed`)}
+                    />
                   </label>
                 </div>
               </div>
