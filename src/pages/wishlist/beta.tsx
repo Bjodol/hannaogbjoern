@@ -117,7 +117,7 @@ const WishlistPage: React.FC<{ wishes: Wish[] }> = ({ wishes }) => {
                   dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
                   className={markdownStyles.markdown}
                 />
-                <h3>Tilgjenlig hos:</h3>
+                <h3>Tilgjengelig hos:</h3>
                 <ul className="pl-4">
                   {links.map(({ _key, link, name }) => (
                     <li key={_key}>
