@@ -79,7 +79,7 @@ const WishlistPage: React.FC<{ wishes: Wish[] }> = ({ wishes }) => {
           <span className="pl-4">Ønskeliste</span>
         </EmojiLabel>
       </h1>
-      <ul className="max-w-[64rem] space-y-4">
+      <ul className="max-w-[64rem] space-y-4 pb-16">
         {wishlist.map(
           ({
             _id,
@@ -104,16 +104,17 @@ const WishlistPage: React.FC<{ wishes: Wish[] }> = ({ wishes }) => {
                 <Image
                   src={
                     image
-                      ? imageBuilder(image).width(200).height(200).url()
+                      ? imageBuilder(image).width(640).height(640).url()
                       : "/static/Ribbon.png"
                   }
-                  width={200}
-                  height={200}
-                  objectFit="contain"
+                  width={640}
+                  height={640}
+                  className="rounded-tl-lg rounded-bl-lg"
+                  objectFit="cover"
                   alt="wish-image"
                 />
               </div>
-              <div className="p-4 grid gap-2">
+              <div className="grid gap-2 p-4">
                 <h2 className="text-lg font-[600]">{title}</h2>
                 <BlockContent
                   blocks={description}
