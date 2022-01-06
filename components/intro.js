@@ -18,7 +18,7 @@ export default function Intro() {
           </h4>
           <Link href="/guest-list">
             <a className="flex justify-center rounded-full w-full bg-pink-600 text-white p-4 font-bold">
-              RSVP
+              RSVP - SU
             </a>
           </Link>
         </div>

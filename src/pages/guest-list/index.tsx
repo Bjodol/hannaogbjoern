@@ -14,7 +14,7 @@ const GuestListPage: React.FC = () => {
     const groupMatches = guestList
       .filter(({ name }) => name.toLowerCase().includes(filter.toLowerCase()))
       .map(({ invitationGroup }) => invitationGroup);
-    if (groupMatches.length > 4) return {};
+    if (groupMatches.length > 8) return {};
     return groupMatches.reduce(
       (acc, group) => ({
         ...acc,
