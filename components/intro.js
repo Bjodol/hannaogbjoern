@@ -29,9 +29,7 @@ export default function Intro() {
             <Link href="/wishlist">
               <a className="text-xl py-4 block">
                 <EmojiLabel emoji="💝">
-                  <span className="underline">
-                    Ønskeliste (Tilgjenglig 15. Januar)
-                  </span>
+                  <span className="underline">Ønskeliste</span>
                 </EmojiLabel>
               </a>
             </Link>
