@@ -40,7 +40,7 @@ type Wish = {
   count: number;
   description: any;
   image?: Media;
-  links: Link[];
+  links?: Link[];
   slug: Slug;
   title: string;
 };
@@ -132,7 +132,7 @@ const WishlistPage: React.FC<{ wishes: Wish[] }> = ({ wishes }) => {
                 />
                 <h3>Tilgjengelig hos:</h3>
                 <ul className="pl-4">
-                  {links.map(({ _key, link, name }) => (
+                  {(links ?? []).map(({ _key, link, name }) => (
                     <li key={_key}>
                       <a
                         href={link}
