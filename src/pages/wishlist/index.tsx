@@ -80,7 +80,13 @@ const WishlistPage: React.FC<{ wishes: Wish[] }> = ({ wishes }) => {
           <span className="pl-4">Ønskeliste</span>
         </EmojiLabel>
       </h1>
-      <p>Det vil komme flere ønsker etterhvert!</p>
+      <p>
+        Vi har ikke opprettet noen ønskelister hos noen forhandlere. Derimot har
+        vi en liste her (som vi lover å ikke sjekke statusen på 🤞), så man står
+        fritt til å velge butikk etter eget ønske. Forhandlerne som er listet
+        opp er bare forslag 😊. <br /> Det kan komme flere ønsker etter hvert
+        som vi kommer på dem.
+      </p>
       <ul className="max-w-[64rem] space-y-4 py-16">
         {wishlist.map(
           ({
