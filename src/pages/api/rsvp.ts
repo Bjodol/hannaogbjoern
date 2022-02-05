@@ -66,7 +66,7 @@ export const { list, create, update } = getDBResourceClient<
   GuestData & MetaInfo
 >({
   collectionName,
-  limit: 100,
+  limit: 150,
   schema,
 });
 
