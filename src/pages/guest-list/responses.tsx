@@ -2,13 +2,14 @@ import axios, { AxiosResponse } from "axios";
 import { useMemo } from "react";
 import useSWR from "swr";
 import { GuestList } from "../api/rsvp";
+import guestList from "./guest-list.json";
 
 const ResponsePage: React.FC = () => {
   const { data, error } = useSWR<AxiosResponse<GuestList>>(
     "/api/rsvp",
     axios.get
   );
-  const { sorted, ...stats } = useMemo(
+  const { sorted, missing, ...stats } = useMemo(
     () => ({
       sorted:
         data?.data.guestInfo.sort(
@@ -34,6 +35,13 @@ const ResponsePage: React.FC = () => {
         (acc, { friday }) => (friday ? acc + 1 : acc),
         0
       ),
+      missing: guestList.guestList.filter(
+        ({ name, invitationGroup }) =>
+          !data?.data.guestInfo.some(
+            (resp) =>
+              resp.name === name && resp.invitationId === invitationGroup
+          )
+      ),
     }),
     [data]
   );
@@ -57,6 +65,7 @@ const ResponsePage: React.FC = () => {
             </li>
           );
         })}
+        <li>Missing: {missing.length}</li>
       </ul>
       <h1 className="text-6xl">Gjesteliste</h1>
       <table className="border-seperate">
@@ -71,6 +80,12 @@ const ResponsePage: React.FC = () => {
           </tr>
         </thead>
         <tbody>
+          {missing.map(({ name, invitationGroup }) => (
+            <tr key={`${name}-${invitationGroup}`}>
+              <td className="p-4">Missing</td>
+              <td className="p-4">{name}</td>
+            </tr>
+          ))}
           {sorted.map(
             ({ name, willAttend, diet, allergies, alcohol, friday }) => (
               <tr key={name}>
