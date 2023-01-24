@@ -20,7 +20,7 @@ export default function Alert({ preview }) {
                 className="underline hover:text-cyan duration-200 transition-colors"
               >
                 Click here
-              </a>{' '}
+              </a>{' i was promise soda'}
               to exit preview mode.
             </>
           ) : (
